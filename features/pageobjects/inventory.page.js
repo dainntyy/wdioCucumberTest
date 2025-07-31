@@ -25,8 +25,7 @@ class Inventory {
     const value = optionMap[option.toLowerCase()];
     if (!value) throw new Error("Unknown sort option: " + option);
 
-    const select = await this.sortDownContainer;
-    await select.selectByAttribute("value", value);
+    await this.sortDownContainer.selectByAttribute("value", value);
 
     await browser.pause(1000);
   }
@@ -50,8 +49,7 @@ class Inventory {
       const prices = [];
       for (const el of priceElements) {
         const text = await el.getText();
-        const value = parseFloat(text.replace(/[^0-9.]/g, ""));
-        prices.push(value);
+        prices.push(parseFloat(text.replace(/[^0-9.]/g, "")));
       }
       if (type === "lohi") {
         const sorted = [...prices].sort((a, b) => a - b);
