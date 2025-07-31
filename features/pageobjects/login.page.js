@@ -1,6 +1,4 @@
-const Page = require("../pageobjects/page");
-
-class LoginPage extends Page {
+class LoginPage {
   get inputUsername() {
     return $("#user-name");
   }
@@ -23,7 +21,7 @@ class LoginPage extends Page {
   }
 
   open() {
-    return super.open();
+     return browser.url("https://www.saucedemo.com");
   }
 }
 

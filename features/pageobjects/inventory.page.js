@@ -1,6 +1,4 @@
-const Page = require("../pageobjects/page");
-
-class Inventory extends Page {
+class Inventory {
   get inventoryContainer() {
     return $(".inventory_container");
   }
